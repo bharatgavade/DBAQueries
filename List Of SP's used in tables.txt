@@ -1,0 +1,19 @@
+-- Query 1
+SELECT DISTINCT objects.name, objects.type,
+comments.text proc_defintion
+FROM syscomments comments
+INNER JOIN sys.objects objects 
+ON comments.id=objects.object_id
+WHERE comments.text LIKE '%Person.Address%'
+AND objects.type='P'
+
+
+
+-- Query 2
+select objects.name,objects.type,
+modules.definition 
+ from sys.sql_modules modules
+ join sys.objects objects
+ on objects.object_id=modules.object_id
+ WHERE modules.definition like '%Person.Address%'
+ and objects.type='P'

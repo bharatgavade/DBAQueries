@@ -1,0 +1,6 @@
+
+
+SELECT p.name, perm.* 
+  FROM sys.database_permissions perm
+  INNER JOIN sys.database_principals p ON perm.grantee_principal_id = p.principal_id
+  WHERE perm.permission_name = 'SHOWPLAN';

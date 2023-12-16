@@ -1,0 +1,11 @@
+DECLARE @db_name VARCHAR(100);
+ 
+SET @db_name = 'My_Database'; -- Change your database name here
+ 
+SELECT database_name [Database Name],
+ name [Job Name],
+ js.job_id [Job ID]
+FROM msdb.dbo.sysjobsteps js
+ INNER JOIN msdb.dbo.sysjobs_view jv
+ ON js.job_id = jv.job_id
+WHERE database_name = @db_name;

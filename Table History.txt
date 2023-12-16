@@ -1,0 +1,6 @@
+SELECT    [TableName] = name,
+create_date,
+modify_date
+FROM    sys.tables
+WHERE    name = 'Your_Table_name'
+GO

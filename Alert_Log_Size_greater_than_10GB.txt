@@ -1,0 +1,274 @@
+USE [master]
+GO
+
+/****** Object:  StoredProcedure [dbo].[DB_Log_Size]    Script Date: 8/3/2020 7:44:10 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+
+
+
+--Alert_Log_Size_greater_than_10GB
+
+CREATE procedure [dbo].[DB_Log_Size]          
+
+
+
+as          
+
+
+
+   ------------------
+
+
+
+    IF OBJECT_ID('master.dbo.log_size') IS Not Null
+
+
+
+ BEGIN
+
+
+
+ DROP TABLE master.dbo.log_size
+
+
+
+ END
+
+
+
+
+
+
+
+   create table master.dbo.log_size (Server_Name varchar(50),Database_Name varchar(250),Log_Size int)
+
+
+
+
+
+
+
+insert into log_size 
+
+
+
+select 'RLIMUMINMISDB',b.name,(a.size*8)/(1024*1024)as log from sys.sysaltfiles a,sys.sysdatabases b where a.dbid = b.dbid and
+
+
+
+ a.filename like '%.ldf'and (a.size*8)/(1024*1024)>10
+
+
+
+ 
+
+
+
+----insert into log_size 
+
+
+
+----select 'RLIBLRLMS',b.name,(a.size*8)/(1024*1024)as log from [LMS_DR].master.sys.sysaltfiles a,[LMS_DR].master.sys.sysdatabases b where a.dbid = b.dbid and
+
+
+
+---- a.filename like '%.ldf'and (a.size*8)/(1024*1024)>10
+
+
+
+ 
+
+
+
+  
+
+
+
+ --select * from log_size
+
+
+
+ 
+
+
+
+   
+
+
+
+   -------------
+
+
+
+if (select COUNT(1)          
+
+
+
+from log_size )>=1        
+
+
+
+begin      
+
+
+
+DECLARE @tableHTML  NVARCHAR(MAX) ;          
+
+
+
+SET @tableHTML =              
+
+
+
+N'<H3 bgcolor="magenta">Below database Log Size is greater than 10 GB on Server 10.126.143.67</H3>'  +        
+
+
+
+ N'<table border="1">' +            
+
+
+
+   N'<tr bgcolor="#8181F7"><th>Server_Name</th><th>DB_Name</th><th>Log_Size</th></tr>'+          
+
+
+
+   CAST ( ( SELECT           
+
+
+
+   td= Server_Name,'',          
+
+
+
+   td= Database_Name,'',          
+
+
+
+   td= Log_Size,''          
+
+
+
+     FROM log_size where server_name='RLIMUMINMISDB' order by Database_Name desc     
+
+
+
+     FOR XML PATH('tr'), TYPE )AS NVARCHAR(MAX))+N'</table>'     
+
+
+
+
+
+
+
+	---- N'<H3 bgcolor="magenta">Below database Log Size is greater than 10 GB on Server 10.126.239.172</H3>'  +         
+
+
+
+ ----N'<table border="1">' +            
+
+
+
+ ----  N'<tr bgcolor="#8181F7"><th>Server_Name</th><th>DB_Name</th><th>Log_Size</th></tr>'+          
+
+
+
+ ----  CAST ( ( SELECT           
+
+
+
+ ----  td= Server_Name,'',          
+
+
+
+ ----  td= Database_Name,'',          
+
+
+
+ ----  td= Log_Size,''          
+
+
+
+ ----    FROM log_size where server_name='RLIBLRLMS' order by Database_Name desc       
+
+
+
+ ----    FOR XML PATH('tr'), TYPE )AS NVARCHAR(MAX))+N'</table>'
+
+
+
+
+
+
+
+     -- Change SQL Server Email notification code here          
+
+
+
+     EXEC msdb.dbo.sp_send_dbmail  
+
+
+
+ --  @recipients='Rlife.itsqldba@relianceada.com;Mustufa.Rangwala@relianceada.com;tushar.h.gaikwad@relianceada.com;younus.dalvi@cloverinfotech.com',  
+
+ @profile_name = 'IT SQL DBA New',
+
+
+    @recipients='rlife.itsqldba@relianceada.com;', 
+       
+
+
+     @subject = 'Log Size is greater than 10 GB on server [143.67]',  
+
+
+
+     @body = @tableHTML,@body_format = 'HTML';  
+
+
+
+     
+
+
+
+	       
+
+
+
+	 
+
+
+
+	 END          
+
+
+
+     -- Drop the Temporary Table 
+
+
+
+	--drop table log_size  
+
+
+
+	 
+
+
+
+
+
+
+
+
+
+
+GO
+
+

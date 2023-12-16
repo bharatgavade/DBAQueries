@@ -1,0 +1,20 @@
+-------------Restore Command-------
+Restore database from disk=''
+with move '' to '',
+move '' to '',
+stats=1, norecovery
+
+
+-----Final Command-----
+restore database with recovery
+
+
+
+---------------------check backup history
+
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT  server_name,database_name,name,backup_start_date,backup_finish_date,
+first_lsn,last_lsn,checkpoint_lsn,database_backup_lsn
+  FROM [msdb].[dbo].[backupset]
+  where database_name ='DB_Name' and type='d' and name is not null
+

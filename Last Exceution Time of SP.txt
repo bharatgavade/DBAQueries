@@ -1,0 +1,32 @@
+SELECT 
+    object_name(object_id), 
+    last_execution_time, 
+    last_elapsed_time, 
+    execution_count
+FROM   
+     sys.dm_exec_procedure_stats ps 
+where 
+      lower(object_name(object_id)) like 'Your_SP_NAME'
+order by 1
+go
+
+SELECT o.name, 
+	   s.last_execution_time,
+	   s.type_desc,
+	   s.execution_count
+FROM sys.dm_exec_procedure_stats s 
+INNER JOIN sys.objects o ON s.object_id = o.object_id 
+WHERE DB_NAME(s.database_ID) = 'Your_DB_NAME'  --Database Name
+AND o.name LIKE ('%Your_SP_NAME%')  --Object Name
+go
+
+
+--first find object id
+--select * from sys.objects where name ='Your_Object_name'
+
+--find details by object id
+--select * from sys.dm_exec_procedure_stats where object_id=your object id
+
+
+--select cached_time,last_execution_time,execution_count,* from sys.dm_exec_procedure_stats where object_id = 
+

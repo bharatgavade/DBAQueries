@@ -1,0 +1,4 @@
+
+SELECT STATS_DATE(OBJECT_ID('table_name'), 
+(SELECT index_id FROM sys.indexes WHERE name = 'index_name'))
+

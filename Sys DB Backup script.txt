@@ -1,0 +1,20 @@
+/* Backup Model Model */ 
+BACKUP DATABASE Model 
+TO DISK = 'I:\SysDB_BKP\Model.BAK' 
+WITH INIT
+GO
+/* Backup Master Database */ 
+BACKUP DATABASE Master 
+TO DISK = 'I:\SysDB_BKP\Master.BAK' 
+WITH INIT
+GO
+/* Backup Master MSDB */ 
+BACKUP DATABASE MSDB 
+TO DISK = 'I:\SysDB_BKP\MSDB.BAK' 
+WITH INIT
+GO
+/* Copy Resource Database Files Using XP_CMDSHELL */ 
+EXEC xp_cmdshell 'COPY /Y "C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Binn\mssqlsystemresource.mdf" "I:\SysDB_BKP"' 
+GO
+EXEC xp_cmdshell 'COPY /Y "C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Binn\mssqlsystemresource.ldf" "I:\SysDB_BKP"'
+GO

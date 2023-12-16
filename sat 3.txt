@@ -1,0 +1,31 @@
+There are 4 servers.
+RGIIRPASAG1(10.10.151.82) primary
+RGIIRPASAG2(10.10.151.91) secondary
+RGIIRPASRNDB(10.10.151.70)-- is standalone
+RGIIRPASRPT(10.10.151.31)-- standalone
+RGIIRPASDB02(10.65.5.206)(PRE-PROD)
+
+
+
+
+
+Dear Team, Need to Restore EfinderResponsive db backup on UAT server for testing of Expense module.
+Production DB details Database Server : 10.65.5.103,7359 
+Database Name : EfinderResponsive 
+UAT server 10.65.15.138,7359 
+DatabaseName : EfinderResponsive
+
+
+pls restore db from 10.65.5.103,7359 Database Name : EfinderResponsive to 10.65.15.138 with name EfinderResponsive_uat (do not overwrite)
+SQL Login:- Grant dbo to 'claim'
+
+
+[MPlusCMS].[dbo].[Claim_Details].YearOfMFG, 
+[MPlusCMS].[dbo].[Claim_Details].ClaimOwnerID, 
+[MPlusCMS].[dbo].[Claim_Details].CreatedBy, 
+[MPlusCMS].[dbo].[Claim_Details].IsDiscrepantCase, 
+[MPlusCMS].[dbo].[Claim_Details].IsDoorStepClaim,
+ [MPlusCMS].[dbo].[Claim_Details].IsVideoStreamingCase, 
+[MPlusCMS].[dbo].[Claim_Details].VSUserID, 
+[MPlusCMS].[dbo].[Claim_Details].OEMClaimRefNo,
+ [MPlusCMS].[dbo].[Claim_Details].OEMIntimationDate

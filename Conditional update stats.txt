@@ -1,0 +1,70 @@
+------For Conditional update stats-----
+
+--Requires Tables-
+
+CREATE TABLE [dbo].[tbl_UpdateStatLog](
+	[rid] [bigint] IDENTITY(1,1) NOT NULL,
+	[db__name] [varchar](500) NULL,
+	[cmd] [varchar](max) NULL,
+	[time_taken] [bigint] NULL,
+	[createdDate] [datetime] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+------------------
+  
+CREATE proc [dbo].[usp_updatestat_ModifiedRowCountBasis]  
+@rcnt int  
+as  
+set nocount on  
+  
+delete from dbaadmin..tbl_UpdateStatLog where db__name=db_name(db_id()) and createdDate<=convert(date,dateadd(dd,-2,getdate()))  
+  
+create table #stat (st_id int identity(1,1), cmd varchar(max))  
+  
+insert into #stat (cmd)  
+select   
+ distinct 'update statistics ['+sch.name+'].['+st.name+ '] with fullscan, MAXDOP =0' cmd  
+from  
+ sys.tables st   
+ inner join sys.schemas sch on st.schema_id=sch.schema_id  
+ inner join  sys.stats ss on st.object_id=ss.object_id  
+ cross apply sys.dm_db_stats_properties(ss.object_id,ss.stats_id) sp  
+where modification_counter>@rcnt  
+  
+declare @cnt int, @cmd nvarchar(max), @dt datetime  
+select @cnt=1  
+  
+if exists(select 1 from #stat)  
+begin  
+ while ((select count(1) from #stat ) > 0)  
+ begin  
+  --print 'in'  
+  select @cmd=cmd from #stat where st_id=@cnt  
+  select @dt=getdate()  
+  exec sp_executesql @cmd  
+  print @cmd  
+  insert into dbaadmin..tbl_UpdateStatLog (db__name,cmd,time_taken,createdDate)  
+  select db_name(db_id()),@cmd cmd,datediff(ss,@dt,getdate()) timeTaken_SS,getdate()  
+  delete from #stat where st_id=@cnt  
+  select @cnt=@cnt+1  
+ end  
+end  
+else  
+begin  
+ select 'nothing to update stats'  
+end  
+  
+drop table #stat  
+  
+  
+
+
+
+
+----in job step----
+
+declare @modified_row_count int
+select @modified_row_count =5000
+exec usp_updatestat_ModifiedRowCountBasis	@modified_row_count 
+go

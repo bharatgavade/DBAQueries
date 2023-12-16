@@ -1,0 +1,61 @@
+CREATE procedure whatsup
+
+
+
+
+
+
+
+as
+
+
+
+
+
+
+
+select sp.spid, DB_NAME(sp.dbid) as dbname,blocked,cmd,text,p.query_cost
+
+
+
+, cast(dateadd(minute, datediff(minute, sp.last_batch, getdate()), 0) as time(0) ) as running_time
+
+
+
+,last_batch,loginame,percent_complete,program_name,lastwaittype,c.client_net_address,
+
+
+
+p.required_memory_kb,p.granted_memory_kb,
+
+
+
+p.used_memory_kb,sp.cpu,sp.physical_io 
+
+
+
+from sys.sysprocesses sp
+
+
+
+cross apply sys.dm_exec_sql_text(sp.sql_handle) sh
+
+
+
+left join sys.dm_exec_query_memory_grants p on sp.spid=p.session_id
+
+
+
+left join sys.dm_exec_requests r on sp.spid=r.session_id
+
+
+
+left join sys.dm_exec_connections c on r.session_id=c.session_id
+
+
+
+where sp.status<>'sleeping' and sp.spid<>@@SPID and text<>'sp_server_diagnostics'
+
+
+
+order by sp.login_time asc 

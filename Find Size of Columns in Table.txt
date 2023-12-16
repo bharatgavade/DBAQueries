@@ -1,0 +1,11 @@
+--First
+
+SELECT 'SUM(DATALENGTH('+Column_name+')) / (1024*1024) as '+Column_name+'_MB,'
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = '--TABLE_NAME--'
+
+--Then 
+
+SELECT
+    /*result previous query (with remove last comma)*/
+FROM --TABLE_NAME--

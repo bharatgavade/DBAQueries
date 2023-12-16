@@ -1,0 +1,4 @@
+SELECT * INTO table_name
+FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
+    'Excel 12.0; Database=file_path.xlsx', [sheetname$]);
+GO

@@ -1,0 +1,41 @@
+
+
+
+
+CREATE procedure Always_on
+
+
+
+as
+
+
+
+
+
+
+
+
+
+
+
+select a.group_name,a.replica_server_name,e.role_desc,b.member_state_desc,b.number_of_quorum_votes,e.connected_state_desc,d.synchronization_state_desc,e.synchronization_health_desc
+
+
+
+from sys.dm_hadr_availability_replica_cluster_nodes a join sys.dm_hadr_cluster_members b
+
+
+
+on b.member_name= a.node_name join sys.dm_hadr_availability_replica_cluster_states c 
+
+
+
+on c.replica_server_name = a.replica_server_name join sys.dm_hadr_database_replica_states d on d.replica_id=c.replica_id
+
+
+
+join sys.dm_hadr_availability_replica_states e on e.replica_id= d.replica_id
+
+
+
+group by a.group_name,a.replica_server_name,e.role_desc,b.member_state_desc,b.number_of_quorum_votes,e.connected_state_desc,d.synchronization_state_desc,e.synchronization_health_desc

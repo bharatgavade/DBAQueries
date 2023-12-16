@@ -1,0 +1,107 @@
+create procedure SQL_Helts
+
+as
+
+
+
+
+
+
+
+--select @@servername
+
+--drop table s2
+
+-------------------------------------create table script-----------------------
+
+--CREATE TABLE [dbo].[s1](
+
+-- [ID] [int] IDENTITY(1,1) NOT NULL,
+
+-- [SQL_Server_service] [varchar](100) NULL
+
+--) ON [PRIMARY]
+
+--GO
+
+--CREATE TABLE [dbo].[s2](
+
+-- [ID] [int] IDENTITY(1,1) NOT NULL,
+
+-- [SQL_Agent_service] [varchar](100) NULL
+
+--) ON [PRIMARY]
+
+--go
+
+
+
+--create table SQL_services (Server_IP varchar(100),SQL_Server_service varchar(100),SQL_Agent_service varchar(100))
+
+--go
+
+
+
+--create table SQL_server_restart (Server_IP varchar(100),port_no varchar(50),Server_restart_date varchar(100))
+
+--go
+
+
+
+--create table Server_status (Server_IP varchar(100),port_no varchar(50),Server_restart_date varchar(100),SQL_Server_service varchar(100),SQL_Agent_service varchar(100))
+
+--go
+
+
+
+truncate table s1
+
+insert into s1 
+
+exec master.dbo.xp_servicecontrol 'QUERYSTATE', 'MSSQLServer'
+
+truncate table s2
+
+insert into s2
+
+exec master.dbo.xp_servicecontrol 'QUERYSTATE', 'SQLServerAgent'
+
+truncate table SQL_services
+
+truncate table SQL_services
+
+insert into SQL_services 
+
+select '10.126.143.85' as server_IP ,a.SQL_Server_service,b.SQL_Agent_service from s1 a,s2 b where a.id=b.id
+
+truncate table SQL_server_restart
+
+insert into SQL_server_restart
+
+select '10.126.143.85' as server_IP, '1981' as port_no,create_date  from sys.databases where name='tempdb' 
+
+truncate table Server_status
+
+insert into Server_status
+
+select a.server_IP, a.port_no,a.Server_restart_date,b.SQL_Server_service,b.SQL_Agent_service
+
+ from SQL_server_restart a ,SQL_services b  where a.server_IP=b.server_IP
+
+--truncate table s1
+
+--truncate table s2
+
+--truncate table SQL_services
+
+--truncate table Server_status
+
+
+
+--select * from s1
+
+--select * from s2
+
+--select * from SQL_services
+
+select * from Server_status

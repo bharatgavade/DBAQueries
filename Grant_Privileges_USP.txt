@@ -1,0 +1,33 @@
+declare @sp_name nvarchar(300)
+
+declare @sql nvarchar(300)
+
+declare cursor_name cursor
+
+	for select quotename(b.name)+'.'+ quotename(a.name)
+
+		from sys.objects a inner join sys.schemas b on a.schema_id=b.schema_id where type='p'
+
+open cursor_name
+
+fetch next from cursor_name  into @sp_name
+
+while @@fetch_status=0
+
+begin
+
+	print @sp_name
+
+	set @sql=N'GRANT ALTER,execute,view definition ON '+@sp_name+' TO irpas_spuser'
+
+	exec sp_executesql @sql
+
+	print @sql
+
+	fetch next from cursor_name  into @sp_name
+
+end
+
+close cursor_name
+
+deallocate cursor_name

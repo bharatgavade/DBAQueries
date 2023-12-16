@@ -1,0 +1,14 @@
+ALTER DATABASE SET OFFLINE WITH ROLLBACK IMMEDIATE;  
+GO
+
+ALTER DATABASE 
+    MODIFY FILE ( NAME = ,   
+                  FILENAME = '.mdf');  
+GO
+ 
+ALTER DATABASE 
+    MODIFY FILE ( NAME = ,   
+                  FILENAME = '.ldf');  
+GO
+
+ALTER DATABASE SET ONLINE
