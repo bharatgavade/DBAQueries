@@ -1,0 +1,19 @@
+--select * from sys.objects where name=''
+go
+--select * from sys.indexes where object_id=
+--where name=''
+go
+--select * from sys.dm_db_index_usage_stats where object_id=
+--order by index_id
+go
+------------------------------
+select indexes.object_id,object_schema_name(indexes.object_id) + '.' + object_name(indexes.object_id) as objectName,
+         indexes.name, indexes.index_id,case when is_unique = 1 then 'UNIQUE ' else '' end + indexes.type_desc as index_type,
+         ddius.user_seeks, ddius.user_scans, ddius.user_lookups, ddius.user_updates
+from sys.indexes
+               left outer join sys.dm_db_index_usage_stats ddius
+                        on indexes.object_id = ddius.object_id
+                             and indexes.index_id = ddius.index_id
+                             and ddius.database_id = db_id()
+							 where OBJECT_NAME(indexes.[object_id])=''
+order by ddius.user_seeks + ddius.user_scans + ddius.user_lookups asc

@@ -1,0 +1,25 @@
+if it is Heap table and have to create a pk
+
+ALTER TABLE tableName
+ADD CONSTRAINT constraintName PRIMARY KEY (column_name);
+
+
+CREATE NONCLUSTERED INDEX [Index_Name]
+ON [Table_name] ([IEuality_column])
+
+CREATE NONCLUSTERED INDEX [Index_Name]
+ON [Table_name] ([IEuality_column])
+INCLUDE ([Included_Columns])
+
+
+CREATE NONCLUSTERED INDEX [Index_Name]
+ON [Table_name] ([IEuality_column]),([InEquality_Column])
+
+CREATE NONCLUSTERED INDEX [Index_Name]
+ON [Table_name] ([IEuality_column]),([InEquality_Column])
+INCLUDE ([Included_Columns])
+
+
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = ON, DROP_EXISTING = OFF, ONLINE = ON, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+
+

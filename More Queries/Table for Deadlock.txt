@@ -1,0 +1,20 @@
+USE [DBAADMIN]
+GO
+
+/****** Object:  Table [dbo].[ErrorLog]    Script Date: 12/4/2020 5:57:30 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ErrorLog](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[logdate] [datetime] NULL,
+	[procInfo] [varchar](10) NULL,
+	[ERRORLOG] [varchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+

@@ -1,0 +1,65 @@
+Following query was long running on PROD server.
+
+SPID: 204
+
+ 
+
+Last executed Query:
+
+
+
+(@ReferenceID int,@ReferenceType nvarchar(2),@UHID nvarchar(14),@Role nvarchar(6),@BenefitOverridden bit,@PolicyNo nvarchar(18),@DOA datetime,@RequestType nvarchar(18),@IsAutoComputationOverridden bit)[usp_CalculateBenefitDetails] @ReferenceID, @ReferenceType, @UHID,@Role,@BenefitOverridden,@PolicyNo,@DOA,@RequestType,@IsAutoComputationOverridden
+ 
+
+SQL Login:
+
+HCS
+
+ 
+
+Status:
+
+sleeping
+
+ 
+
+Hostname:
+
+RGITESTSYS
+
+ 
+
+Database:
+
+HCSDB
+
+ 
+
+Program Name:
+
+[.Net SqlClient Data Provider]
+
+
+
+open_tran_count:
+
+1
+
+ 
+
+Last Batch:
+
+2020-11-30 19:00:46.550
+
+ 
+
+Login Time:
+
+2020-11-30 19:00:30.077
+ 
+
+The same has been killed as discussed.
+
+ 
+
+There is no long running query on Server at present.

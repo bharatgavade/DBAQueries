@@ -1,0 +1,31 @@
+sp_MSforeachdb'use [?] SELECT db_id ()as DB_ID,db_name() dbname, 
+UserName = name, UserSID = sid from sysusers  
+where issqluser = 1   
+and   (sid is not null and sid <> 0x0)  
+and   (len(sid) <= 16)  
+and   suser_sname(sid) is null 
+order by name'
+go
+
+------- Combined Results for all online databases----
+create table [#Orphan_users]
+ (
+	[DB_ID] [int],
+	[dbname] [nvarchar](255),
+	[User_Name] [varchar] (50),
+	[UserSID][varbinary](100)
+)
+go
+sp_MSforeachdb'use [?] 
+insert into #Orphan_users
+SELECT db_id ()as DB_ID,db_name() dbname, 
+UserName = name, UserSID = sid from sysusers  
+where issqluser = 1   
+and   (sid is not null and sid <> 0x0)  
+and   (len(sid) <= 16)  
+and   suser_sname(sid) is null 
+order by name'
+go	 
+select * from [#Orphan_users] order by dbname
+go
+drop table [#Orphan_users] 

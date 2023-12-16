@@ -1,0 +1,30 @@
+CREATE TABLE [dbo].[#db_growth](
+	[dbname] [nvarchar](255) NULL,
+	[dbid] [smallint] NULL,
+	[Name] [sysname] NOT NULL,
+	[fileid] [smallint] NULL,
+	[Filename] [nvarchar](260) NOT NULL,
+	[Currently Allocated Space (MB)] [decimal](15, 2) NULL,
+	[Space Used (MB)] [decimal](15, 2) NULL,
+	[Available Space (MB)] [decimal](15, 2) NULL,
+	[Current_Date_Time] [datetime] not null
+) ON [PRIMARY]
+go
+
+ Sp_msforeachdb 
+ 'use [?]
+ insert into #db_growth
+SELECT	DB_NAME (db_id()) as dbname,db_id(), Name,fileid, Filename,CONVERT(Decimal(15,2),ROUND(a.Size/128.000,2)) [Currently Allocated Space (MB)],
+CONVERT(Decimal(15,2),ROUND(FILEPROPERTY(a.Name,''SpaceUsed'')/128.000,2)) AS [Space Used (MB)],
+CONVERT(Decimal(15,2),ROUND((a.Size-FILEPROPERTY(a.Name,''SpaceUsed''))/128.000,2)) AS [Available Space (MB)],
+(getdate()) as [Current_Date_Time] 
+FROM dbo.sysfiles a (NOLOCK)'
+go
+
+--select * from #db_growth order by dbname asc
+go
+
+select * from #db_growth where Filename like '%%' order by dbname asc
+go
+
+drop table #db_growth

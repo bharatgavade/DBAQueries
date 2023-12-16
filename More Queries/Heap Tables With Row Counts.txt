@@ -1,0 +1,89 @@
+SELECT
+t.name,
+[RowCount] = SUM
+(
+CASE
+WHEN (p.index_id < 2) AND (a.type = 1) THEN p.rows
+ELSE 0
+END
+)
+FROM
+sys.tables t
+INNER JOIN sys.partitions p
+ON t.object_id = p.object_id
+INNER JOIN sys.allocation_units a
+ON p.partition_id = a.container_id
+where name in (SELECT  o.name 
+FROM sys.indexes i
+INNER JOIN sys.objects o
+ ON  i.object_id = o.object_id
+WHERE o.type_desc = 'USER_TABLE'
+AND i.type_desc = 'HEAP')
+and p.rows >10000
+GROUP BY
+t.name
+
+-----------
+--select t.name,* from sys.indexes i inner join sys.tables t on i.object_id=t.object_id where index_id=0 order by t.name asc
+
+----------for each db with seperate db op
+sp_MSforeachdb
+'use [?]
+SELECT db_name() dbname, t.Name,
+[RowCount] = SUM
+(
+CASE
+WHEN (p.index_id < 2) AND (a.type = 1) THEN p.rows
+ELSE 0
+END
+)
+FROM
+sys.tables t
+INNER JOIN sys.partitions p ON t.object_id = p.object_id
+INNER JOIN sys.allocation_units a ON p.partition_id = a.container_id
+where name in (SELECT  o.name FROM sys.indexes i
+INNER JOIN sys.objects o ON  i.object_id = o.object_id
+WHERE o.type_desc = ''USER_TABLE''
+AND i.type_desc = ''HEAP'')
+and p.rows >10000 GROUP BY t.name'
+
+--- for each db with combined op inserted into #table
+
+CREATE TABLE [dbo].[#AMOL]
+(
+	[dbname] [nvarchar](255) NULL,
+	[Name] [sysname] NOT NULL,
+	[RowCount] [int] NOT NULL
+)
+go
+
+sp_MSforeachdb 
+'use [?] 
+ insert into #AMOL
+SELECT db_name() dbname, t.Name,
+[RowCount] = SUM
+(
+CASE
+WHEN (p.index_id < 2) AND (a.type = 1) THEN p.rows
+ELSE 0
+END
+)
+FROM
+sys.tables t
+INNER JOIN sys.partitions p
+ON t.object_id = p.object_id
+INNER JOIN sys.allocation_units a
+ON p.partition_id = a.container_id
+where name in (SELECT  o.name 
+FROM sys.indexes i
+INNER JOIN sys.objects o
+ ON  i.object_id = o.object_id
+WHERE o.type_desc = ''USER_TABLE''
+AND i.type_desc = ''HEAP'')
+and p.rows >10000
+GROUP BY
+t.name
+'
+
+select * from #AMOL order by dbname
+drop table #AMOL 

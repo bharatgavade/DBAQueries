@@ -1,0 +1,68 @@
+Hi Parshuram,
+
+ 
+
+Following query causes blocking on PROD server.
+
+SPID: 338
+
+ 
+
+Last executed Query:
+
+
+
+select * from #t2 where SrvcReqDtlCode='59520144'      select LocCode,UserID,* from CBFRMLMS..CBFrmSrvcReqDtl  where SrvcReqDtlCode='59520144'
+
+
+
+SQL Login:
+
+iceadmin
+
+ 
+
+Status:
+
+sleeping
+
+ 
+
+Hostname:
+
+RGIICEDB
+
+ 
+
+Database:
+
+CBFRMLMS
+
+ 
+
+Program Name:
+
+[Microsoft SQL Server Management Studio - Query]
+
+
+
+open_tran_count:
+
+1
+
+ 
+
+Last Batch:
+
+2020-12-02 13:13:44.980
+
+ 
+
+Login Time:
+
+2020-12-02 12:21:58.440
+
+
+The same has been killed as discussed.
+
+There is no blocking on Server at present.

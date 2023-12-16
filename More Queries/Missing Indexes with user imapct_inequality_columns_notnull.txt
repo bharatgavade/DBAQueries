@@ -1,0 +1,11 @@
+select
+top 25 statement  Tbl,equality_columns,inequality_columns,included_columns,avg_user_impact,
+convert(varchar,(select sqlserver_start_time from sys.dm_os_sys_info) ,107)Count_since_date,
+unique_compiles,user_seeks,last_user_seek,user_scans,last_system_scan
+from
+sys.dm_db_missing_index_details id
+inner join sys.dm_db_missing_index_groups ig on id.index_handle=ig.index_handle
+inner join sys.dm_db_missing_index_group_stats igs on igs.group_handle=ig.index_group_handle
+where inequality_columns is not null and avg_user_impact>70
+and database_id <> 4
+order by user_seeks desc

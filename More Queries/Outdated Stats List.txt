@@ -1,0 +1,40 @@
+SELECT DISTINCT
+'UPDATE STATISTICS '+ '['+ DB_NAME()  +']' + '.' + '[' +  OBJECT_SCHEMA_NAME (s.[object_id]) + ']' + + '.' + 
+'[' + OBJECT_NAME(s.[object_id])+ ']' + ' [' + s.name + ']' as UpdateStats_Query,
+
+--'UPDATE STATISTICS ',
+--OBJECT_SCHEMA_NAME (s.[object_id]) as schemaName,
+--OBJECT_NAME(s.[object_id]) AS TableName,
+--c.name AS ColumnName,
+--s.name AS StatName,
+STATS_DATE(s.[object_id], s.stats_id) AS LastUpdated,
+DATEDIFF(d,STATS_DATE(s.[object_id], s.stats_id),getdate()) DaysOld,
+dsp.modification_counter,
+s.auto_created,
+s.user_created,
+s.no_recompute,
+s.[object_id],
+s.stats_id,
+sc.stats_column_id,
+sc.column_id
+FROM sys.stats s
+JOIN sys.stats_columns sc
+ON sc.[object_id] = s.[object_id] AND sc.stats_id = s.stats_id
+JOIN sys.columns c ON c.[object_id] = sc.[object_id] AND c.column_id = sc.column_id
+JOIN sys.partitions par ON par.[object_id] = s.[object_id]
+JOIN sys.objects obj ON par.[object_id] = obj.[object_id]
+CROSS APPLY sys.dm_db_stats_properties(sc.[object_id], s.stats_id) AS dsp
+WHERE OBJECTPROPERTY(s.object_id,'IsUserTable') = 1
+--and s.object_id=
+--and OBJECT_NAME(s.[object_id])=''
+--and modification_counter >=10000
+ORDER BY modification_counter desc;
+
+-----------------modification counter of Statistcs
+--SELECT obj.name, obj.object_id, stat.name, stat.stats_id,
+--last_updated, modification_counter
+--FROM sys.objects AS obj
+--INNER JOIN sys.stats AS stat ON stat.object_id = obj.object_id
+--CROSS APPLY sys.dm_db_stats_properties(stat.object_id, stat.stats_id) AS sp
+--ORDER BY modification_counter DESC
+

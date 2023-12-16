@@ -1,0 +1,12 @@
+SELECT
+'DB_NAME' = db.name,
+'DB_ID' =db.database_id,
+'STATUS'=DB.state_desc,
+'FILE_NAME' = mf.name,
+'FILE_TYPE' = mf.type_desc,
+'FILE_PATH' = mf.physical_name
+FROM
+sys.databases db
+INNER JOIN sys.master_files mf
+ON db.database_id = mf.database_id
+order by db.name 

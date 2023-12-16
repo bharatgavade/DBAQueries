@@ -1,0 +1,13 @@
+SELECT
+       'Your_IP' as [Server IP],
+       @@Servername as [Server Name],
+       cast(B.name as varchar(35)) as [Database Name], 
+        ISNULL(Convert(char(40), MAX(backup_start_date), 100), 'NEVER') as [Backup Start Date],  
+        ISNULL(Convert(char(40), MAX(backup_finish_date), 100), 'NEVER') as [Backup End Date] ,
+        ISNULL(STR(ABS(DATEDIFF(day, GetDate(), MAX(backup_finish_date)))), 'NEVER') as [Day Since Last Backup],
+        GETDATE() as [Execution Date]
+        
+FROM master.dbo.sysdatabases B LEFT OUTER JOIN msdb.dbo.backupset A 
+ON A.database_name = B.name AND A.type = 'D'  
+        where (B.name!='tempdb' and B.name!='model')
+        GROUP BY B.Name ORDER BY [Day Since Last Backup] asc

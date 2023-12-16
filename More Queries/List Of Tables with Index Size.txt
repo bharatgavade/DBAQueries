@@ -1,0 +1,32 @@
+WITH CteIndex
+AS
+(
+SELECT 
+     reservedpages = (reserved_page_count)
+     ,usedpages = (used_page_count)
+     ,pages = (
+            CASE
+                WHEN (s.index_id < 2) THEN (in_row_data_page_count + lob_used_page_count + row_overflow_used_page_count)
+                ELSE lob_used_page_count + row_overflow_used_page_count
+            END
+            )    
+     ,s.object_id   
+     ,i.index_id        
+     ,i.type_desc AS IndexType
+     ,i.name AS indexname
+    FROM sys.dm_db_partition_stats s
+    INNER JOIN sys.indexes i ON s.[object_id] = i.[object_id] AND s.index_id = i.index_id   
+)
+SELECT DISTINCT
+DB_NAME(DB_ID()) AS DatabaseName
+,o.name AS TableName
+,o.object_id
+,ct.indexname
+,ct.IndexType
+,ct.index_id
+, IndexSpace = LTRIM (STR ((CASE WHEN usedpages > pages THEN CASE WHEN ct.index_id < 2 THEN  pages ELSE (usedpages - pages) END ELSE 0 END) * 8, 15, 0) + ' KB')
+FROM CteIndex ct
+INNER JOIN sys.objects o ON o.object_id = ct.object_id
+INNER JOIN sys.dm_db_index_physical_stats (DB_ID(), NULL, NULL, NULL , NULL) ps ON ps.object_id = o.object_id
+AND ps.index_id = ct.index_id
+ORDER BY name ASC

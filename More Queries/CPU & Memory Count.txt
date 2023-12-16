@@ -1,0 +1,16 @@
+--------CPU
+select @@SERVERNAME,SERVERPROPERTY('ComputerNamePhysicalNetBIOS'),
+cpu_count, hyperthread_ratio, softnuma_configuration, softnuma_configuration_desc, socket_count, numa_node_count 
+from sys.dm_os_sys_info
+go
+SELECT (cpu_count / hyperthread_ratio) AS PhysicalCPUs,   cpu_count AS logicalCPUs   FROM sys.dm_os_sys_info
+-------------------Memory
+
+SELECT total_physical_memory_kb/1024 AS [Physical Memory (MB)]
+FROM sys.dm_os_sys_memory WITH (NOLOCK) OPTION (RECOMPILE);
+go
+--SELECT  
+--(physical_memory_in_use_kb/1024) AS Memory_usedby_Sqlserver_MB
+--FROM sys.dm_os_process_memory; 
+go
+select value_in_use as [Sql_max_physical_memory(MB)] from sys.configurations where name='max server memory (MB)'

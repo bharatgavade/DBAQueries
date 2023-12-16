@@ -1,0 +1,15 @@
+--USP
+
+select s.[object_id],OBJECT_NAME(s.[object_id]) AS SP_Name,p.cached_time,p.last_execution_time,p.last_elapsed_time,p.execution_count,
+p.total_elapsed_time,p.max_elapsed_time,p.min_elapsed_time
+from sys.dm_exec_procedure_stats p join sys.objects s on s.[object_id]=p.[object_id] where 
+OBJECT_NAME(s.[object_id])=''
+
+------------------------------------
+
+--Function
+
+select s.[object_id],OBJECT_NAME(s.[object_id]) AS SP_Name,f.cached_time,f.last_execution_time,f.last_elapsed_time,f.execution_count,
+f.total_elapsed_time,f.max_elapsed_time,f.min_elapsed_time
+from sys.dm_exec_function_stats f join sys.objects s on s.[object_id]=f.[object_id] where 
+OBJECT_NAME(s.[object_id])=''

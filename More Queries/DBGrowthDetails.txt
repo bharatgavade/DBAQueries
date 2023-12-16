@@ -1,0 +1,33 @@
+--Create table on Master database
+USE [master]
+GO
+
+CREATE TABLE [dbo].[DBGROWTHDEtails](
+	[name] [sysname] NOT NULL,
+	[growth] [int] NOT NULL,
+	[is_percent_growth] [bit] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+
+sp_msforeachdb 'Insert into DBGROWTHDEtails(name, growth, is_percent_growth)select [name], growth, is_percent_growth from [?].sys.database_files'
+sp_msforeachdb 'select [name], growth, is_percent_growth from ?.sys.database_files '
+select * From DBGROWTHDEtails
+
+select DB_NAME(c.database_id)as DatabaseName,b.name as DBFileName,b.growth,b.is_percent_growth from sys.sysaltfiles a join DBGROWTHDEtails b on a.name=b.name
+join sys.databases c on c.database_id=a.dbid
+
+
+
+
+-- Growth in Mb
+select DB_NAME(c.database_id)as DatabaseName,b.name as DBFileName,(b.growth*8)/1024 as Size_In_MB,b.is_percent_growth 
+from sys.sysaltfiles a join DBGROWTHDEtails b on a.name=b.name
+join sys.databases c on c.database_id=a.dbid
+where is_percent_growth=0
+--Growth in Percent
+select DB_NAME(c.database_id)as DatabaseName,b.name as DBFileName,b.growth as Growth_in_Percent,b.is_percent_growth 
+from sys.sysaltfiles a join DBGROWTHDEtails b on a.name=b.name
+join sys.databases c on c.database_id=a.dbid
+where is_percent_growth=1

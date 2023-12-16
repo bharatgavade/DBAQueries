@@ -1,0 +1,15 @@
+
+select * from backupset where database_name=''
+select * from backupset where checkpoint_lsn=''
+
+select * from backupset where backup_set_id=
+
+select * from backupfilegroup where backup_set_id=
+
+select * from backupfile where backup_set_id=
+
+select * from restorehistory  where backup_set_id=
+
+select * from restorefile where destination_phys_name like '%%'
+
+select * from restorefilegroup where restore_history_id=

@@ -1,0 +1,25 @@
+use CBFRMWRK update statistics [dbo].[CBFrmSrvcReqDtl] with fullscan
+use CBCommunication update statistics [dbo].[CBCommMailData] with fullscan
+use CBFRMSYNCDATA update statistics [dbo].[PolDtls] with fullscan
+
+T040822103499
+
+On UAT DB - 
+Please follow the following steps to validate the database setup
+•	Create an empty schema and a sonarqube user. Grant this sonarqube user permissions to create, update, and delete objects for this schema.
+•	MS SQL database's shared lock strategy may impact SonarQube runtime. Making sure that is_read_committed_snapshot_on is set to true to prevent SonarQube from facing potential deadlocks under heavy loads.
+•	Example of query to check is_read_committed_snapshot_on:
+SELECT is_read_committed_snapshot_on FROM sys.databases WHERE name='YourSonarQubeDatabase';
+•	Example of query to update is_read_committed_snapshot_on:
+ALTER DATABASE YourSonarQubeDatabase SET READ_COMMITTED_SNAPSHOT ON WITH ROLLBACK IMMEDIATE;
+
+Integrated Security
+•	To use integrated security:
+•	Download the Microsoft SQL JDBC Driver 9.4.1 package and copy mssql-jdbc_auth-9.4.1.x64.dll to any folder in your path.
+•	If you're running SonarQube as a Windows service, make sure the Windows account under 
+
+
+Task for 25042022
+5.105 CMDM_DMS UPDATE STATISTICS [dbo].[CUSTOMER_SAS_DQ_OUTPUT_NEW] WITH FULLSCAN, MAXDOP=0
+5.110 PremiumDataMart UPDATE STATISTICS [dbo].[Tbl_Manthan_BasicPR_Search_column] WITH FULLSCAN, MAXDOP=0
+190.30 AuditTrailMQ_New update statistics [dbo].[tblServicelogxml_New] with fullscan,maxdop=0

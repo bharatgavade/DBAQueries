@@ -1,0 +1,19 @@
+select *,
+OBJECT_NAME(s.[object_id]) AS TableName from sys.indexes i join sys.objects s on s.[object_id]=i.[object_id] where OBJECT_NAME(s.[object_id])='WSSSync_Partition30' 
+and s.type_desc <> 'HEAP'
+
+select OBJECT_NAME(s.[object_id]) AS TableName,i.object_id,i.name as index_name,i.index_id as indexid,i.type_desc as indextype,i.has_filter,s.create_date as createdate
+from sys.indexes i join sys.objects s on s.[object_id]=i.[object_id] where 
+OBJECT_NAME(s.[object_id])=
+'' 
+--order by TableName
+order by i.name
+--and i.name=''
+
+select * from sys.indexes where name in 
+(
+)
+order by name
+
+
+="'"&ColumnCell&"',"

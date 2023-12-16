@@ -1,0 +1,15 @@
+USE [DBAAdmin]
+GO
+
+INSERT INTO [dbo].[tbl_DBAList]
+           ([DBA_Name],[created_date],[deleted_status],[email],[alert_purpose],[isServerOwner])
+     VALUES
+           ('','Today's date',0,'','DBA')
+GO
+
+--('AMOL BHAGAT','2021-02-09',0,'AMOL.D.BHAGAT@RCAP.CO.IN','DBA',0)
+
+
+alter table dbaadmin..tbl_DBAList
+add isServerOwner tinyint not null default 0
+GO

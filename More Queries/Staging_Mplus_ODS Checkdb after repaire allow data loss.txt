@@ -1,0 +1,711 @@
+DBCC results for 'Staging_Mplus_ODS'.
+Service Broker Msg 9675, State 1: Message Types analyzed: 14.
+Service Broker Msg 9676, State 1: Service Contracts analyzed: 6.
+Service Broker Msg 9667, State 1: Services analyzed: 3.
+Service Broker Msg 9668, State 1: Service Queues analyzed: 3.
+Service Broker Msg 9669, State 1: Conversation Endpoints analyzed: 0.
+Service Broker Msg 9674, State 1: Conversation Groups analyzed: 0.
+Service Broker Msg 9670, State 1: Remote Service Bindings analyzed: 0.
+Service Broker Msg 9605, State 1: Conversation Priorities analyzed: 0.
+Repair: The page (1:264938) has been deallocated from object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown).
+Repair: The page (1:264942) has been deallocated from object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown).
+Repair: The page (1:282132) has been deallocated from object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown).
+Repair: The page (1:12179990) has been deallocated from object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown).
+Msg 8966, Level 16, State 2, Line 16
+Unable to read and latch page (1:12637289) with latch type SH. Invalid page ID. failed.
+Msg 8966, Level 16, State 2, Line 16
+Unable to read and latch page (1:12637289) with latch type SH. Invalid page ID. failed.
+Msg 8966, Level 16, State 2, Line 16
+Unable to read and latch page (1:12637289) with latch type SH. Invalid page ID. failed.
+Msg 8966, Level 16, State 2, Line 16
+Unable to read and latch page (1:12637289) with latch type SH. Invalid page ID. failed.
+Msg 8966, Level 16, State 2, Line 16
+Unable to read and latch page (1:12637289) with latch type SH. Invalid page ID. failed.
+Msg 8966, Level 16, State 2, Line 16
+Unable to read and latch page (1:12637289) with latch type SH. Invalid page ID. failed.
+Msg 8966, Level 16, State 2, Line 16
+Unable to read and latch page (1:12637289) with latch type SH. Invalid page ID. failed.
+Msg 8966, Level 16, State 2, Line 16
+Unable to read and latch page (1:12637289) with latch type SH. Invalid page ID. failed.
+Msg 8966, Level 16, State 2, Line 16
+Unable to read and latch page (1:12637289) with latch type SH. Invalid page ID. failed.
+Msg 8966, Level 16, State 2, Line 16
+Unable to read and latch page (1:12637289) with latch type SH. Invalid page ID. failed.
+Msg 2576, Level 16, State 1, Line 16
+The Index Allocation Map (IAM) page (0:0) is pointed to by the previous pointer of IAM page (1:264938) in object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown), but it was not detected in the scan.
+        The error has been repaired.
+Msg 2576, Level 16, State 1, Line 16
+The Index Allocation Map (IAM) page (0:0) is pointed to by the previous pointer of IAM page (1:264942) in object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown), but it was not detected in the scan.
+        The error has been repaired.
+Msg 2576, Level 16, State 1, Line 16
+The Index Allocation Map (IAM) page (0:0) is pointed to by the previous pointer of IAM page (1:282132) in object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown), but it was not detected in the scan.
+        The error has been repaired.
+Msg 8947, Level 16, State 1, Line 16
+Table error: Multiple IAM pages for object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown) contain allocations for the same interval. IAM pages (1:264942) and (1:264938).
+        The error has been repaired.
+Msg 8947, Level 16, State 1, Line 16
+Table error: Multiple IAM pages for object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown) contain allocations for the same interval. IAM pages (1:282132) and (1:264938).
+        The error has been repaired.
+Msg 8947, Level 16, State 1, Line 16
+Table error: Multiple IAM pages for object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown) contain allocations for the same interval. IAM pages (1:12179990) and (1:264938).
+        The error has been repaired.
+Msg 2575, Level 16, State 2, Line 16
+The Index Allocation Map (IAM) page (1:12637289) is pointed to by the next pointer of IAM page (1:12179990) in object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown), but it was not detected in the scan.
+        The error has been repaired.
+Msg 2575, Level 16, State 2, Line 16
+The Index Allocation Map (IAM) page (1:12637289) is pointed to by the next pointer of IAM page (1:264938) in object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown), but it was not detected in the scan.
+        The error has been repaired.
+Msg 2575, Level 16, State 2, Line 16
+The Index Allocation Map (IAM) page (1:12637289) is pointed to by the next pointer of IAM page (1:282132) in object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown), but it was not detected in the scan.
+        The error has been repaired.
+Msg 2575, Level 16, State 1, Line 16
+The Index Allocation Map (IAM) page (1:12637289) is pointed to by the next pointer of IAM page (1:264942) in object ID 0, index ID -1, partition ID 0, alloc unit ID 72057595094630400 (type Unknown), but it was not detected in the scan.
+        The error has been repaired.
+CHECKDB found 10 allocation errors and 10 consistency errors not associated with any single object.
+CHECKDB fixed 10 allocation errors and 0 consistency errors not associated with any single object.
+DBCC results for 'sys.sysrscols'.
+There are 7837 rows in 125 pages for object "sys.sysrscols".
+DBCC results for 'sys.sysrowsets'.
+There are 427 rows in 11 pages for object "sys.sysrowsets".
+DBCC results for 'sys.sysclones'.
+There are 0 rows in 0 pages for object "sys.sysclones".
+DBCC results for 'sys.sysallocunits'.
+There are 569 rows in 22 pages for object "sys.sysallocunits".
+DBCC results for 'sys.sysfiles1'.
+There are 2 rows in 1 pages for object "sys.sysfiles1".
+DBCC results for 'sys.sysseobjvalues'.
+There are 0 rows in 0 pages for object "sys.sysseobjvalues".
+DBCC results for 'sys.syspriorities'.
+There are 0 rows in 0 pages for object "sys.syspriorities".
+DBCC results for 'sys.sysdbfrag'.
+There are 0 rows in 0 pages for object "sys.sysdbfrag".
+DBCC results for 'sys.sysfgfrag'.
+There are 0 rows in 0 pages for object "sys.sysfgfrag".
+DBCC results for 'sys.sysdbfiles'.
+There are 2 rows in 1 pages for object "sys.sysdbfiles".
+DBCC results for 'sys.syspru'.
+There are 0 rows in 0 pages for object "sys.syspru".
+DBCC results for 'sys.sysbrickfiles'.
+There are 0 rows in 0 pages for object "sys.sysbrickfiles".
+DBCC results for 'sys.sysphfg'.
+There are 1 rows in 1 pages for object "sys.sysphfg".
+DBCC results for 'sys.sysprufiles'.
+There are 2 rows in 1 pages for object "sys.sysprufiles".
+DBCC results for 'sys.sysftinds'.
+There are 0 rows in 0 pages for object "sys.sysftinds".
+DBCC results for 'sys.sysowners'.
+There are 23 rows in 1 pages for object "sys.sysowners".
+DBCC results for 'sys.sysdbreg'.
+There are 0 rows in 0 pages for object "sys.sysdbreg".
+DBCC results for 'sys.sysprivs'.
+There are 176 rows in 1 pages for object "sys.sysprivs".
+DBCC results for 'sys.sysschobjs'.
+There are 2906 rows in 70 pages for object "sys.sysschobjs".
+DBCC results for 'sys.syscsrowgroups'.
+There are 0 rows in 0 pages for object "sys.syscsrowgroups".
+DBCC results for 'sys.sysextsources'.
+There are 0 rows in 0 pages for object "sys.sysextsources".
+DBCC results for 'sys.sysexttables'.
+There are 0 rows in 0 pages for object "sys.sysexttables".
+DBCC results for 'sys.sysextfileformats'.
+There are 0 rows in 0 pages for object "sys.sysextfileformats".
+DBCC results for 'sys.sysmultiobjvalues'.
+There are 0 rows in 0 pages for object "sys.sysmultiobjvalues".
+DBCC results for 'sys.syscolpars'.
+There are 12409 rows in 308 pages for object "sys.syscolpars".
+DBCC results for 'sys.sysxlgns'.
+There are 0 rows in 0 pages for object "sys.sysxlgns".
+DBCC results for 'sys.sysxsrvs'.
+There are 0 rows in 0 pages for object "sys.sysxsrvs".
+DBCC results for 'sys.sysnsobjs'.
+There are 1 rows in 1 pages for object "sys.sysnsobjs".
+DBCC results for 'sys.sysusermsgs'.
+There are 0 rows in 0 pages for object "sys.sysusermsgs".
+DBCC results for 'sys.syscerts'.
+There are 0 rows in 0 pages for object "sys.syscerts".
+DBCC results for 'sys.sysrmtlgns'.
+There are 0 rows in 0 pages for object "sys.sysrmtlgns".
+DBCC results for 'sys.syslnklgns'.
+There are 0 rows in 0 pages for object "sys.syslnklgns".
+DBCC results for 'sys.sysxprops'.
+There are 0 rows in 0 pages for object "sys.sysxprops".
+DBCC results for 'sys.sysscalartypes'.
+There are 35 rows in 1 pages for object "sys.sysscalartypes".
+DBCC results for 'sys.systypedsubobjs'.
+There are 0 rows in 0 pages for object "sys.systypedsubobjs".
+DBCC results for 'sys.sysidxstats'.
+There are 1699 rows in 66 pages for object "sys.sysidxstats".
+DBCC results for 'sys.sysiscols'.
+There are 1698 rows in 19 pages for object "sys.sysiscols".
+DBCC results for 'sys.sysendpts'.
+There are 0 rows in 0 pages for object "sys.sysendpts".
+DBCC results for 'sys.syswebmethods'.
+There are 0 rows in 0 pages for object "sys.syswebmethods".
+DBCC results for 'sys.sysbinobjs'.
+There are 23 rows in 1 pages for object "sys.sysbinobjs".
+DBCC results for 'sys.sysaudacts'.
+There are 0 rows in 0 pages for object "sys.sysaudacts".
+DBCC results for 'sys.sysobjvalues'.
+There are 1744 rows in 791 pages for object "sys.sysobjvalues".
+DBCC results for 'sys.syscscolsegments'.
+There are 0 rows in 0 pages for object "sys.syscscolsegments".
+DBCC results for 'sys.syscsdictionaries'.
+There are 0 rows in 0 pages for object "sys.syscsdictionaries".
+DBCC results for 'sys.sysclsobjs'.
+There are 16 rows in 1 pages for object "sys.sysclsobjs".
+DBCC results for 'sys.sysrowsetrefs'.
+There are 0 rows in 0 pages for object "sys.sysrowsetrefs".
+DBCC results for 'sys.sysremsvcbinds'.
+There are 0 rows in 0 pages for object "sys.sysremsvcbinds".
+DBCC results for 'sys.sysxmitqueue'.
+There are 0 rows in 0 pages for object "sys.sysxmitqueue".
+DBCC results for 'sys.sysrts'.
+There are 1 rows in 1 pages for object "sys.sysrts".
+DBCC results for 'sys.sysconvgroup'.
+There are 0 rows in 0 pages for object "sys.sysconvgroup".
+DBCC results for 'sys.sysdesend'.
+There are 0 rows in 0 pages for object "sys.sysdesend".
+DBCC results for 'sys.sysdercv'.
+There are 0 rows in 0 pages for object "sys.sysdercv".
+DBCC results for 'sys.syssingleobjrefs'.
+There are 200 rows in 1 pages for object "sys.syssingleobjrefs".
+DBCC results for 'sys.sysmultiobjrefs'.
+There are 1520 rows in 38 pages for object "sys.sysmultiobjrefs".
+DBCC results for 'sys.sysguidrefs'.
+There are 0 rows in 0 pages for object "sys.sysguidrefs".
+DBCC results for 'sys.sysfoqueues'.
+There are 0 rows in 0 pages for object "sys.sysfoqueues".
+DBCC results for 'sys.syschildinsts'.
+There are 0 rows in 0 pages for object "sys.syschildinsts".
+DBCC results for 'sys.syscompfragments'.
+There are 0 rows in 0 pages for object "sys.syscompfragments".
+DBCC results for 'sys.sysftsemanticsdb'.
+There are 0 rows in 0 pages for object "sys.sysftsemanticsdb".
+DBCC results for 'sys.sysftstops'.
+There are 0 rows in 0 pages for object "sys.sysftstops".
+DBCC results for 'sys.sysftproperties'.
+There are 0 rows in 0 pages for object "sys.sysftproperties".
+DBCC results for 'sys.sysxmitbody'.
+There are 0 rows in 0 pages for object "sys.sysxmitbody".
+DBCC results for 'sys.sysfos'.
+There are 0 rows in 0 pages for object "sys.sysfos".
+DBCC results for 'sys.sysqnames'.
+There are 98 rows in 1 pages for object "sys.sysqnames".
+DBCC results for 'sys.sysxmlcomponent'.
+There are 100 rows in 1 pages for object "sys.sysxmlcomponent".
+DBCC results for 'sys.sysxmlfacet'.
+There are 112 rows in 1 pages for object "sys.sysxmlfacet".
+DBCC results for 'sys.sysxmlplacement'.
+There are 19 rows in 1 pages for object "sys.sysxmlplacement".
+DBCC results for 'sys.sysobjkeycrypts'.
+There are 0 rows in 0 pages for object "sys.sysobjkeycrypts".
+DBCC results for 'sys.sysasymkeys'.
+There are 0 rows in 0 pages for object "sys.sysasymkeys".
+DBCC results for 'sys.syssqlguides'.
+There are 0 rows in 0 pages for object "sys.syssqlguides".
+DBCC results for 'sys.sysbinsubobjs'.
+There are 3 rows in 1 pages for object "sys.sysbinsubobjs".
+DBCC results for 'sys.syssoftobjrefs'.
+There are 909 rows in 14 pages for object "sys.syssoftobjrefs".
+DBCC results for 'tbl_GarageDetails_QV'.
+There are 2010273 rows in 47185 pages for object "tbl_GarageDetails_QV".
+DBCC results for 'Data_VideoStreaming'.
+There are 45912 rows in 1132 pages for object "Data_VideoStreaming".
+DBCC results for 'tbl_ProductMaster_QV'.
+There are 64 rows in 2 pages for object "tbl_ProductMaster_QV".
+DBCC results for 'VS_Data'.
+There are 109811 rows in 2764 pages for object "VS_Data".
+DBCC results for 'GST_Jun2020'.
+There are 34776 rows in 1647 pages for object "GST_Jun2020".
+DBCC results for 'VS_Mplus_data'.
+There are 0 rows in 0 pages for object "VS_Mplus_data".
+DBCC results for 'Document_Process_Mapping_Temp'.
+There are 91 rows in 1 pages for object "Document_Process_Mapping_Temp".
+DBCC results for 'Claim_Smart_Assist_Actions_Details'.
+There are 886515 rows in 9249 pages for object "Claim_Smart_Assist_Actions_Details".
+DBCC results for 'tbl_Complaints_QV'.
+There are 66785 rows in 3238 pages for object "tbl_Complaints_QV".
+DBCC results for 'GST_Jun2020_1'.
+There are 303 rows in 9 pages for object "GST_Jun2020_1".
+DBCC results for 'PD_1'.
+There are 164611 rows in 13526 pages for object "PD_1".
+DBCC results for 'tbl_Complaints_Final_QV'.
+There are 65072 rows in 793 pages for object "tbl_Complaints_Final_QV".
+DBCC results for 'GST_Jun2020_2'.
+There are 290 rows in 9 pages for object "GST_Jun2020_2".
+DBCC results for 'Mas_Document_New'.
+There are 93 rows in 1 pages for object "Mas_Document_New".
+DBCC results for 'DO_Generation_New'.
+There are 443367 rows in 5438 pages for object "DO_Generation_New".
+DBCC results for 'Product_VehicleCategory_Mapping'.
+There are 44 rows in 1 pages for object "Product_VehicleCategory_Mapping".
+DBCC results for 'tbl_Apr_2018'.
+There are 35437 rows in 438 pages for object "tbl_Apr_2018".
+DBCC results for 'VS_Data_UAT_14_jul_2020'.
+There are 46430 rows in 3679 pages for object "VS_Data_UAT_14_jul_2020".
+DBCC results for 'VS_Mplus_data_1'.
+There are 884562 rows in 65611 pages for object "VS_Mplus_data_1".
+DBCC results for 'Mplus_Asondate'.
+There are 22924 rows in 2033 pages for object "Mplus_Asondate".
+DBCC results for 'tbl_months'.
+There are 4 rows in 1 pages for object "tbl_months".
+DBCC results for 'VS_TechData'.
+There are 34420 rows in 346 pages for object "VS_TechData".
+DBCC results for 'OEM_Policy_logic'.
+There are 456333 rows in 37945 pages for object "OEM_Policy_logic".
+DBCC results for 'SB_repud'.
+There are 15421 rows in 92 pages for object "SB_repud".
+DBCC results for 'GST_Insure_Oct19'.
+There are 41251 rows in 1964 pages for object "GST_Insure_Oct19".
+DBCC results for 'GST_exp_Oct19'.
+There are 1383 rows in 41 pages for object "GST_exp_Oct19".
+DBCC results for 'Jun19_Inv'.
+There are 434 rows in 13 pages for object "Jun19_Inv".
+DBCC results for 'Finaltemp'.
+There are 15404 rows in 46 pages for object "Finaltemp".
+DBCC results for 'GST_Inv_Oct19'.
+There are 633 rows in 19 pages for object "GST_Inv_Oct19".
+DBCC results for 'MakeUpation_1_Sep_16'.
+There are 1492860 rows in 5622 pages for object "MakeUpation_1_Sep_16".
+DBCC results for 'OEM_SLA_Logic'.
+There are 19 rows in 2 pages for object "OEM_SLA_Logic".
+DBCC results for 'Mplus_rejected'.
+There are 91 rows in 9 pages for object "Mplus_rejected".
+DBCC results for 'Jan2020_1'.
+There are 52011 rows in 2461 pages for object "Jan2020_1".
+DBCC results for 'Jan2020_2'.
+There are 1243 rows in 37 pages for object "Jan2020_2".
+DBCC results for 'Location_Garage_Mapping'.
+There are 335928 rows in 1919 pages for object "Location_Garage_Mapping".
+DBCC results for 'Jan2020_3'.
+There are 504 rows in 15 pages for object "Jan2020_3".
+DBCC results for 'sys.sqlagent_jobs'.
+There are 0 rows in 0 pages for object "sys.sqlagent_jobs".
+DBCC results for 'Garage_Master_Details'.
+There are 580838 rows in 3687 pages for object "Garage_Master_Details".
+DBCC results for 'Efinder_RCU_Details'.
+There are 83729 rows in 3931 pages for object "Efinder_RCU_Details".
+DBCC results for 'sys.sqlagent_jobsteps'.
+There are 0 rows in 0 pages for object "sys.sqlagent_jobsteps".
+DBCC results for 'sys.sqlagent_job_history'.
+There are 0 rows in 0 pages for object "sys.sqlagent_job_history".
+DBCC results for 'OEM_Dashboard_Data'.
+There are 456387 rows in 58991 pages for object "OEM_Dashboard_Data".
+DBCC results for 'sys.sqlagent_jobsteps_logs'.
+There are 0 rows in 0 pages for object "sys.sqlagent_jobsteps_logs".
+DBCC results for 'INS_Mar19'.
+There are 0 rows in 0 pages for object "INS_Mar19".
+DBCC results for 'SystemPaymentID'.
+There are 95 rows in 1 pages for object "SystemPaymentID".
+DBCC results for 'tbl_RegionMaster_CMS_QV_1'.
+There are 159074 rows in 4193 pages for object "tbl_RegionMaster_CMS_QV_1".
+DBCC results for 'sys.plan_persist_query_text'.
+There are 0 rows in 0 pages for object "sys.plan_persist_query_text".
+DBCC results for 'sys.plan_persist_query'.
+There are 0 rows in 0 pages for object "sys.plan_persist_query".
+DBCC results for 'Mas_SubPart'.
+There are 2525067 rows in 25529 pages for object "Mas_SubPart".
+DBCC results for 'Investigation_Report_Final_bkp'.
+There are 76507 rows in 10440 pages for object "Investigation_Report_Final_bkp".
+DBCC results for 'sys.plan_persist_plan'.
+There are 0 rows in 0 pages for object "sys.plan_persist_plan".
+DBCC results for 'VS_Data_UAT_27_jul_2020'.
+There are 46430 rows in 3680 pages for object "VS_Data_UAT_27_jul_2020".
+DBCC results for 'mas_part'.
+There are 161966 rows in 1342 pages for object "mas_part".
+DBCC results for 'Efinder_Rejection_Reason'.
+There are 9640 rows in 376 pages for object "Efinder_Rejection_Reason".
+DBCC results for 'Victim_Details'.
+There are 14195 rows in 253 pages for object "Victim_Details".
+DBCC results for 'sys.plan_persist_runtime_stats'.
+There are 0 rows in 0 pages for object "sys.plan_persist_runtime_stats".
+DBCC results for 'Mplus_Asondate_new'.
+There are 26462 rows in 2322 pages for object "Mplus_Asondate_new".
+DBCC results for 'Cashloss_Settlement_Score_Card'.
+There are 1 rows in 1 pages for object "Cashloss_Settlement_Score_Card".
+DBCC results for 'sys.plan_persist_runtime_stats_interval'.
+There are 0 rows in 0 pages for object "sys.plan_persist_runtime_stats_interval".
+DBCC results for 'Mplus_TOYOTA_Report_QV'.
+There are 15974 rows in 1662 pages for object "Mplus_TOYOTA_Report_QV".
+DBCC results for 'sys.plan_persist_context_settings'.
+There are 0 rows in 0 pages for object "sys.plan_persist_context_settings".
+DBCC results for 'QV_TempReopen'.
+There are 30532 rows in 148 pages for object "QV_TempReopen".
+DBCC results for 'QV_TEMP'.
+There are 16135 rows in 170 pages for object "QV_TEMP".
+DBCC results for 'PD'.
+There are 109385 rows in 11967 pages for object "PD".
+DBCC results for 'Mplus_ModelMaster'.
+There are 629 rows in 5 pages for object "Mplus_ModelMaster".
+DBCC results for 'QV_TEMP1'.
+There are 0 rows in 0 pages for object "QV_TEMP1".
+DBCC results for 'test'.
+There are 4 rows in 1 pages for object "test".
+DBCC results for 'tbl_Close_data'.
+There are 10 rows in 1 pages for object "tbl_Close_data".
+DBCC results for 'tbl_mplus_gst_report'.
+There are 507 rows in 14 pages for object "tbl_mplus_gst_report".
+DBCC results for 'tbl_Paid_QV_UAT'.
+There are 1039714 rows in 74424 pages for object "tbl_Paid_QV_UAT".
+DBCC results for 'TBL_Outstanding_data'.
+There are 433 rows in 12 pages for object "TBL_Outstanding_data".
+DBCC results for 'ApprovalLimit_Mapping'.
+There are 0 rows in 0 pages for object "ApprovalLimit_Mapping".
+DBCC results for 'tbl_Outstanding_QV_UAT'.
+There are 562334 rows in 11946 pages for object "tbl_Outstanding_QV_UAT".
+DBCC results for 'tbl_Get_Surveyor_Utilization_Report'.
+There are 57 rows in 2 pages for object "tbl_Get_Surveyor_Utilization_Report".
+DBCC results for 'Vehicle_Type_Master'.
+There are 12 rows in 1 pages for object "Vehicle_Type_Master".
+DBCC results for 'Initial_Survey_Details'.
+There are 1411533 rows in 24385 pages for object "Initial_Survey_Details".
+DBCC results for 'OEM_Theft_Report'.
+There are 24918 rows in 780 pages for object "OEM_Theft_Report".
+DBCC results for 'Sep_19_Gst'.
+There are 93327 rows in 4446 pages for object "Sep_19_Gst".
+DBCC results for 'Aug_19_Gst'.
+There are 87158 rows in 4144 pages for object "Aug_19_Gst".
+DBCC results for 'Tbl_Paid_Data'.
+There are 0 rows in 0 pages for object "Tbl_Paid_Data".
+DBCC results for 'Aug_19_Gst_Exp'.
+There are 1109 rows in 32 pages for object "Aug_19_Gst_Exp".
+DBCC results for 'temp'.
+There are 8769 rows in 36 pages for object "temp".
+DBCC results for 'Sep_19_Gst_Exp'.
+There are 684 rows in 21 pages for object "Sep_19_Gst_Exp".
+DBCC results for 'temp12'.
+There are 9561 rows in 21 pages for object "temp12".
+DBCC results for 'Aug_19_Gst_Inv'.
+There are 481 rows in 14 pages for object "Aug_19_Gst_Inv".
+DBCC results for 'Mplus_TOYOTA_Report_QV_temp'.
+There are 1933 rows in 191 pages for object "Mplus_TOYOTA_Report_QV_temp".
+DBCC results for 'Investigation_Report_Final'.
+There are 145032 rows in 26234 pages for object "Investigation_Report_Final".
+DBCC results for 'Sep_19_Gst_Inv'.
+There are 407 rows in 12 pages for object "Sep_19_Gst_Inv".
+DBCC results for 'OEM_Theft_Report_Bkp'.
+There are 17548 rows in 539 pages for object "OEM_Theft_Report_Bkp".
+DBCC results for 'zzzz_temp_staging_mplus'.
+There are 41247 rows in 1954 pages for object "zzzz_temp_staging_mplus".
+DBCC results for 'temp1'.
+There are 2649 rows in 16 pages for object "temp1".
+DBCC results for 'Toyota_data_New'.
+There are 0 rows in 0 pages for object "Toyota_data_New".
+DBCC results for 'Mplus_Asondate_1'.
+There are 21992 rows in 1961 pages for object "Mplus_Asondate_1".
+DBCC results for 'temp_Sap'.
+There are 4796 rows in 360 pages for object "temp_Sap".
+DBCC results for 'GST_July20_1'.
+There are 31872 rows in 1508 pages for object "GST_July20_1".
+DBCC results for 'Toyota_Data_new_new'.
+There are 937 rows in 164 pages for object "Toyota_Data_new_new".
+DBCC results for 'GST_July20_2'.
+There are 373 rows in 11 pages for object "GST_July20_2".
+DBCC results for 'Sep_19_1'.
+There are 93355 rows in 4442 pages for object "Sep_19_1".
+DBCC results for 'GST_July20_3'.
+There are 330 rows in 10 pages for object "GST_July20_3".
+DBCC results for 'Sep_19_2'.
+There are 684 rows in 20 pages for object "Sep_19_2".
+DBCC results for 'Sep_19_3'.
+There are 407 rows in 12 pages for object "Sep_19_3".
+DBCC results for 'claim_no_10_15lacs'.
+There are 13913 rows in 118 pages for object "claim_no_10_15lacs".
+DBCC results for 'Sep_1'.
+There are 59357 rows in 2812 pages for object "Sep_1".
+DBCC results for 'SB_PartAssesmentDetails'.
+There are 45576 rows in 9109 pages for object "SB_PartAssesmentDetails".
+DBCC results for 'claim_no_15lacs'.
+There are 20048 rows in 164 pages for object "claim_no_15lacs".
+DBCC results for 'Sep_2'.
+There are 684 rows in 21 pages for object "Sep_2".
+DBCC results for 'VS_Data_1'.
+There are 5576 rows in 164 pages for object "VS_Data_1".
+DBCC results for 'SB_Policyno'.
+There are 7682 rows in 1354 pages for object "SB_Policyno".
+DBCC results for 'VS_Mplus_data_final'.
+There are 275271 rows in 21423 pages for object "VS_Mplus_data_final".
+DBCC results for 'Sep_3'.
+There are 407 rows in 12 pages for object "Sep_3".
+DBCC results for 'DeviationApproval'.
+There are 95646 rows in 951 pages for object "DeviationApproval".
+DBCC results for 'tbl_section_deviation'.
+There are 0 rows in 0 pages for object "tbl_section_deviation".
+DBCC results for 'tbl_Paid_QV_Temp'.
+There are 1813089 rows in 125645 pages for object "tbl_Paid_QV_Temp".
+DBCC results for 'VS_TechData_Final'.
+There are 82674 rows in 843 pages for object "VS_TechData_Final".
+DBCC results for 'Nov_19_1'.
+There are 57390 rows in 2715 pages for object "Nov_19_1".
+DBCC results for 'tbl_Outstanding_QV_New'.
+There are 908249 rows in 19384 pages for object "tbl_Outstanding_QV_New".
+DBCC results for 'Customer_NEFT_Details'.
+There are 246111 rows in 7019 pages for object "Customer_NEFT_Details".
+DBCC results for 'Nov_19_2'.
+There are 1052 rows in 31 pages for object "Nov_19_2".
+DBCC results for 'PD_temp'.
+There are 1517 rows in 41 pages for object "PD_temp".
+DBCC results for 'Discrepancy_Details'.
+There are 22817 rows in 225 pages for object "Discrepancy_Details".
+DBCC results for 'Nov_19_3'.
+There are 499 rows in 15 pages for object "Nov_19_3".
+DBCC results for 'Mplus_Asondate_new_p'.
+There are 29735 rows in 2621 pages for object "Mplus_Asondate_new_p".
+DBCC results for 'GST_Dec_19'.
+There are 37272 rows in 1764 pages for object "GST_Dec_19".
+DBCC results for 'GST_Dec_19_1'.
+There are 37272 rows in 1764 pages for object "GST_Dec_19_1".
+DBCC results for 'VSClaim_Assignment_Audit'.
+There are 487660 rows in 3972 pages for object "VSClaim_Assignment_Audit".
+DBCC results for 'SAP_ReverseUpload'.
+There are 1447279 rows in 16557 pages for object "SAP_ReverseUpload".
+DBCC results for 'TBL_Mplus_Toyota_Claim_Data_Working'.
+There are 104477 rows in 20888 pages for object "TBL_Mplus_Toyota_Claim_Data_Working".
+DBCC results for 'GST_Dec_19_Rev'.
+There are 56094 rows in 2653 pages for object "GST_Dec_19_Rev".
+DBCC results for 'GST_Dec_19_Exp'.
+There are 1400 rows in 41 pages for object "GST_Dec_19_Exp".
+DBCC results for 'GST_Dec_19_Inv'.
+There are 695 rows in 20 pages for object "GST_Dec_19_Inv".
+DBCC results for 'MSsavedforeignkeys'.
+There are 0 rows in 0 pages for object "MSsavedforeignkeys".
+DBCC results for 'TBL_Mplus_Toyota_Claim_Data'.
+There are 1300 rows in 457 pages for object "TBL_Mplus_Toyota_Claim_Data".
+DBCC results for 'ModelId'.
+There are 35428760 rows in 240936 pages for object "ModelId".
+DBCC results for 'MSsavedforeignkeycolumns'.
+There are 0 rows in 0 pages for object "MSsavedforeignkeycolumns".
+DBCC results for 'TBL_Mplus_Toyota_Claim_Data_History1'.
+There are 19282 rows in 3571 pages for object "TBL_Mplus_Toyota_Claim_Data_History1".
+DBCC results for 'MSsavedforeignkeyextendedproperties'.
+There are 0 rows in 0 pages for object "MSsavedforeignkeyextendedproperties".
+DBCC results for 'TBL_Mplus_Toyota_Claim_Data_History'.
+There are 21485 rows in 7039 pages for object "TBL_Mplus_Toyota_Claim_Data_History".
+DBCC results for 'TBL_Mplus_GSTClaimDetails'.
+There are 14664 rows in 453 pages for object "TBL_Mplus_GSTClaimDetails".
+DBCC results for 'mplusclaimhistry'.
+There are 5873096 rows in 33504 pages for object "mplusclaimhistry".
+DBCC results for 'tempClaimDetailsForGSTReport_New'.
+There are 17364 rows in 104 pages for object "tempClaimDetailsForGSTReport_New".
+DBCC results for 'tempGSTReportAsPerNewLogic_new'.
+There are 2953 rows in 131 pages for object "tempGSTReportAsPerNewLogic_new".
+DBCC results for 'StateName'.
+There are 61 rows in 1 pages for object "StateName".
+DBCC results for 'Tbl_NCB_Claim_Details'.
+There are 1636410 rows in 26361 pages for object "Tbl_NCB_Claim_Details".
+DBCC results for 'GST_Apr2020_1'.
+There are 7349 rows in 348 pages for object "GST_Apr2020_1".
+DBCC results for 'tempClaimDetailsForGSTReport'.
+There are 185532 rows in 1310 pages for object "tempClaimDetailsForGSTReport".
+DBCC results for 'Ins_Mplus_Master'.
+There are 0 rows in 0 pages for object "Ins_Mplus_Master".
+DBCC results for 'GST_Apr2020_2'.
+There are 489 rows in 15 pages for object "GST_Apr2020_2".
+DBCC results for 'tempGSTReportAsPerNewLogic'.
+There are 2451113 rows in 109346 pages for object "tempGSTReportAsPerNewLogic".
+DBCC results for 'Ins_data'.
+There are 558573 rows in 9221 pages for object "Ins_data".
+DBCC results for 'GST_Apr2020_3'.
+There are 210 rows in 7 pages for object "GST_Apr2020_3".
+DBCC results for 'PartAssessment_GST_Details'.
+There are 12257685 rows in 1227284 pages for object "PartAssessment_GST_Details".
+DBCC results for 'InvestigatorPaymentDetails'.
+There are 44860 rows in 1723 pages for object "InvestigatorPaymentDetails".
+DBCC results for 'Final_Survey_Expense'.
+There are 97973 rows in 2914 pages for object "Final_Survey_Expense".
+DBCC results for 'SUPA'.
+There are 500 rows in 3 pages for object "SUPA".
+DBCC results for 'Spot_Survey_Expense'.
+There are 5563 rows in 185 pages for object "Spot_Survey_Expense".
+DBCC results for 'Reinspection_Expense'.
+There are 39 rows in 2 pages for object "Reinspection_Expense".
+DBCC results for 'tbl_Branch_Master_QV'.
+There are 261 rows in 6 pages for object "tbl_Branch_Master_QV".
+DBCC results for 'Tbl_Toyota_Summary_Score_Card_MAR_20'.
+There are 54 rows in 4 pages for object "Tbl_Toyota_Summary_Score_Card_MAR_20".
+DBCC results for 'hday_list'.
+There are 767 rows in 4 pages for object "hday_list".
+DBCC results for 'tbl_RegionMaster_CMS_QV'.
+There are 144711 rows in 2859 pages for object "tbl_RegionMaster_CMS_QV".
+DBCC results for 'Tbl_Toyota_Summary_Score_Card_JAN_20'.
+There are 6 rows in 1 pages for object "Tbl_Toyota_Summary_Score_Card_JAN_20".
+DBCC results for 'TBL_Mplus_Toyota_Claim_Data_Working_Bkp'.
+There are 32072 rows in 6410 pages for object "TBL_Mplus_Toyota_Claim_Data_Working_Bkp".
+DBCC results for 'temp_SystemPaymentID'.
+There are 43142 rows in 72 pages for object "temp_SystemPaymentID".
+DBCC results for 'VS_Mplus_data_final_2020'.
+There are 5840 rows in 469 pages for object "VS_Mplus_data_final_2020".
+DBCC results for 'VS_TechData_2020'.
+There are 3989 rows in 36 pages for object "VS_TechData_2020".
+DBCC results for 'RepairCashloss_Details'.
+There are 98573 rows in 2191 pages for object "RepairCashloss_Details".
+DBCC results for 'VS_TechData2'.
+There are 3721 rows in 37 pages for object "VS_TechData2".
+DBCC results for 'Branch_Master'.
+There are 412 rows in 20 pages for object "Branch_Master".
+DBCC results for 'Total_Loss_Details_New'.
+There are 3746 rows in 112 pages for object "Total_Loss_Details_New".
+DBCC results for 'Disposal_Score_Card'.
+There are 1 rows in 1 pages for object "Disposal_Score_Card".
+DBCC results for 'tblGSTAmountDetails'.
+There are 10 rows in 1 pages for object "tblGSTAmountDetails".
+DBCC results for 'LOB_MASTER'.
+There are 14 rows in 1 pages for object "LOB_MASTER".
+DBCC results for 'Cashloss_Details_New'.
+There are 6042 rows in 148 pages for object "Cashloss_Details_New".
+DBCC results for 'Settlement_TAT_Card'.
+There are 1 rows in 1 pages for object "Settlement_TAT_Card".
+DBCC results for 'RCU_Referral'.
+There are 402120 rows in 5205 pages for object "RCU_Referral".
+DBCC results for 'GST_1'.
+There are 32064 rows in 1519 pages for object "GST_1".
+DBCC results for 'NetOfSalvage_New'.
+There are 8266 rows in 238 pages for object "NetOfSalvage_New".
+DBCC results for 'DateMaster'.
+There are 2191 rows in 23 pages for object "DateMaster".
+DBCC results for 'Court_SettelMent_Details_New'.
+There are 650 rows in 15 pages for object "Court_SettelMent_Details_New".
+DBCC results for 'Gst_2'.
+There are 327 rows in 10 pages for object "Gst_2".
+DBCC results for 'Theft_Assessment'.
+There are 20492 rows in 368 pages for object "Theft_Assessment".
+DBCC results for 'GST_3'.
+There are 313 rows in 9 pages for object "GST_3".
+DBCC results for 'PA_Assessment'.
+There are 2268 rows in 28 pages for object "PA_Assessment".
+DBCC results for 'Demotable'.
+There are 718627 rows in 50948 pages for object "Demotable".
+DBCC results for 'tbl_PartsDetails_QV'.
+There are 12031327 rows in 154034 pages for object "tbl_PartsDetails_QV".
+DBCC results for 'OLE DB Destination'.
+There are 0 rows in 0 pages for object "OLE DB Destination".
+DBCC results for 'ZtempClaimGarageInvoiceDetails'.
+There are 208 rows in 2 pages for object "ZtempClaimGarageInvoiceDetails".
+DBCC results for 'ztemp'.
+There are 15385 rows in 44 pages for object "ztemp".
+DBCC results for 'Region_Hub_Mapping'.
+There are 24 rows in 1 pages for object "Region_Hub_Mapping".
+DBCC results for 'tempGSTReportAsPerNewLogic_new1'.
+There are 1302 rows in 59 pages for object "tempGSTReportAsPerNewLogic_new1".
+DBCC results for 'Reports_Claim_Details'.
+There are 1389291 rows in 53004 pages for object "Reports_Claim_Details".
+DBCC results for 'VS_Mplus_data_2'.
+There are 46430 rows in 3580 pages for object "VS_Mplus_data_2".
+DBCC results for 'GST_1_sep20'.
+There are 32061 rows in 1520 pages for object "GST_1_sep20".
+DBCC results for 'VS_TechData1'.
+There are 34785 rows in 354 pages for object "VS_TechData1".
+DBCC results for 'ztblGSTAmountDetails'.
+There are 0 rows in 0 pages for object "ztblGSTAmountDetails".
+DBCC results for 'GST_2_sep20'.
+There are 313 rows in 9 pages for object "GST_2_sep20".
+DBCC results for 'Remark_Details'.
+There are 23845420 rows in 242480 pages for object "Remark_Details".
+DBCC results for 'ztblGSTAmountDetailsForLabour'.
+There are 0 rows in 0 pages for object "ztblGSTAmountDetailsForLabour".
+DBCC results for 'GST_3_sep20'.
+There are 291 rows in 9 pages for object "GST_3_sep20".
+DBCC results for 'tbl_Intimation_QV'.
+There are 54791 rows in 1084 pages for object "tbl_Intimation_QV".
+DBCC results for 'tempClaimGarageInvoiceDetails'.
+There are 0 rows in 0 pages for object "tempClaimGarageInvoiceDetails".
+DBCC results for 'Investigation_Report'.
+There are 157609 rows in 44250 pages for object "Investigation_Report".
+DBCC results for 'Particulars_Details'.
+There are 23344994 rows in 253393 pages for object "Particulars_Details".
+DBCC results for 'VS_Data_UAT_1_jun_2020'.
+There are 46430 rows in 3568 pages for object "VS_Data_UAT_1_jun_2020".
+DBCC results for 'tbl_ProductMaster'.
+There are 55 rows in 1 pages for object "tbl_ProductMaster".
+DBCC results for 'tbl_Garage_Details'.
+There are 71724 rows in 1302 pages for object "tbl_Garage_Details".
+DBCC results for 'MotorClaims_RiskScore_Report_RCU'.
+There are 217733 rows in 12936 pages for object "MotorClaims_RiskScore_Report_RCU".
+DBCC results for 'audit_trail_stg'.
+There are 6240481 rows in 140658 pages for object "audit_trail_stg".
+DBCC results for 'tbl_RegionMaster_CMS_QV_2'.
+There are 130 rows in 4 pages for object "tbl_RegionMaster_CMS_QV_2".
+DBCC results for 'motor_claim_ratio_EF'.
+There are 83729 rows in 3798 pages for object "motor_claim_ratio_EF".
+DBCC results for 'SapUploadRegister_CorrectedNilDEPGSTEntry'.
+There are 182263 rows in 1657 pages for object "SapUploadRegister_CorrectedNilDEPGSTEntry".
+DBCC results for 'GST_May2020'.
+There are 14119 rows in 670 pages for object "GST_May2020".
+DBCC results for 'Sep19_Garage_Insured'.
+There are 93276 rows in 4444 pages for object "Sep19_Garage_Insured".
+DBCC results for 'ztblClaimDetailsForGSTReport'.
+There are 1000 rows in 5 pages for object "ztblClaimDetailsForGSTReport".
+DBCC results for 'GST_May2020_Exp'.
+There are 340 rows in 10 pages for object "GST_May2020_Exp".
+DBCC results for 'Sep19_Exp'.
+There are 684 rows in 20 pages for object "Sep19_Exp".
+DBCC results for 'SB_Inv'.
+There are 760 rows in 27 pages for object "SB_Inv".
+DBCC results for 'GST_May2020_inv'.
+There are 107 rows in 3 pages for object "GST_May2020_inv".
+DBCC results for 'DBErrorLogs'.
+There are 88 rows in 3 pages for object "DBErrorLogs".
+DBCC results for 'Sep19_Inv'.
+There are 407 rows in 12 pages for object "Sep19_Inv".
+DBCC results for 'Tbl_Toyota_Summary_Score_Card'.
+There are 0 rows in 0 pages for object "Tbl_Toyota_Summary_Score_Card".
+DBCC results for 'Aug19_Garage_Insured'.
+There are 87086 rows in 4141 pages for object "Aug19_Garage_Insured".
+DBCC results for 'Mas_Document'.
+There are 102 rows in 1 pages for object "Mas_Document".
+DBCC results for 'Tbl_NCB_Claim_Details_bkp'.
+There are 974580 rows in 13562 pages for object "Tbl_NCB_Claim_Details_bkp".
+DBCC results for 'Aug19_Exp'.
+There are 1109 rows in 32 pages for object "Aug19_Exp".
+DBCC results for 'tempClaimDetailsForGSTReport_bkp_jun20'.
+There are 132367 rows in 935 pages for object "tempClaimDetailsForGSTReport_bkp_jun20".
+DBCC results for 'Aug19_Inv'.
+There are 481 rows in 14 pages for object "Aug19_Inv".
+DBCC results for 'tempGSTReportAsPerNewLogic_bkp_jun20'.
+There are 2282812 rows in 101725 pages for object "tempGSTReportAsPerNewLogic_bkp_jun20".
+DBCC results for 'VS_Data_UAT_18_jun_2020'.
+There are 46430 rows in 3572 pages for object "VS_Data_UAT_18_jun_2020".
+DBCC results for 'tbl_ClaimMaster_QV'.
+There are 1110227 rows in 102721 pages for object "tbl_ClaimMaster_QV".
+DBCC results for 'tbl_Close_QV'.
+There are 148328 rows in 3166 pages for object "tbl_Close_QV".
+DBCC results for 'tbl_Paid_QV'.
+There are 1769857 rows in 147814 pages for object "tbl_Paid_QV".
+DBCC results for 'MPlus_to_ICE'.
+There are 1142 rows in 24 pages for object "MPlus_to_ICE".
+DBCC results for 'SB_MultiInvoices'.
+There are 8534 rows in 48 pages for object "SB_MultiInvoices".
+DBCC results for 'sys.queue_messages_1977058079'.
+There are 0 rows in 0 pages for object "sys.queue_messages_1977058079".
+DBCC results for 'GST_Mar2020_1'.
+There are 29516 rows in 1396 pages for object "GST_Mar2020_1".
+DBCC results for 'SB_Multi'.
+There are 89 rows in 1 pages for object "SB_Multi".
+DBCC results for 'GST_Mar2020_2'.
+There are 884 rows in 26 pages for object "GST_Mar2020_2".
+DBCC results for 'sys.queue_messages_2009058193'.
+There are 0 rows in 0 pages for object "sys.queue_messages_2009058193".
+DBCC results for 'GST_Mar2020_3'.
+There are 360 rows in 11 pages for object "GST_Mar2020_3".
+DBCC results for 'Vehicle_Segment_Master_QV'.
+There are 9 rows in 1 pages for object "Vehicle_Segment_Master_QV".
+DBCC results for 'sys.queue_messages_2041058307'.
+There are 0 rows in 0 pages for object "sys.queue_messages_2041058307".
+DBCC results for 'sys.filestream_tombstone_2073058421'.
+There are 0 rows in 0 pages for object "sys.filestream_tombstone_2073058421".
+DBCC results for 'Cashloss_Settlement_state_Wise_Score_Card'.
+There are 18 rows in 1 pages for object "Cashloss_Settlement_state_Wise_Score_Card".
+DBCC results for 'tbl_GarageSAPCode_QV'.
+There are 1128072 rows in 6507 pages for object "tbl_GarageSAPCode_QV".
+DBCC results for 'sys.syscommittab'.
+There are 0 rows in 0 pages for object "sys.syscommittab".
+DBCC results for 'sys.filetable_updates_2105058535'.
+There are 0 rows in 0 pages for object "sys.filetable_updates_2105058535".
+DBCC results for 'tbl_Outstanding_QV'.
+There are 4048139 rows in 90184 pages for object "tbl_Outstanding_QV".
+DBCC results for 'tbl_Repudiation_QV'.
+There are 1245 rows in 10 pages for object "tbl_Repudiation_QV".
+CHECKDB found 10 allocation errors and 10 consistency errors in database 'Staging_Mplus_ODS'.
+CHECKDB fixed 10 allocation errors and 0 consistency errors in database 'Staging_Mplus_ODS'.
+ is the minimum repair level for the errors found by DBCC CHECKDB (Staging_Mplus_ODS, repair_allow_data_loss).
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.

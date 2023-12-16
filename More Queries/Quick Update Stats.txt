@@ -1,0 +1,20 @@
+use irpas
+ 
+
+select
+    sp.modification_counter,sp.last_updated,so.name obj_name,ss.name stat_name,' update statistics ['+ssc.name+'].[' + so.name+ '] ['+ss.name+']'cmd ,ssc.name
+    into #t
+from sys.objects so
+inner join sys.stats ss on so.object_id=ss.object_id
+inner join sys.schemas ssc on ssc.schema_id=so.schema_id
+--left outer join sys.stats_columns sc on ss.stats_id=sc.stats_id
+cross apply sys.dm_db_stats_properties(so.object_id,ss.stats_id) sp
+where so.type='U'  and modification_counter>5000
+--so.object_id=object_id('tblUserProductPermissions')
+order by 1 desc
+ 
+ 
+select distinct cmd sql_cmd_to_run_quick_update_stat from #t 
+
+ 
+drop table #t

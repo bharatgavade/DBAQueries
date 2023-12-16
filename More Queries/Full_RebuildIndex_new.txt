@@ -1,0 +1,27 @@
+DECLARE @table_name varchar(1000),@sql nvarchar(4000) , @counter int
+declare c1 cursor for
+select
+'['+ss.name+'].'+'['+so.name +']' name
+from sys.objects so inner join sys.schemas ss
+on so.schema_id=ss.schema_id
+where so.type='U'
+order by so.name
+select @counter=1
+open c1
+fetch next from c1 into @table_name
+while @@Fetch_Status = 0
+begin
+Select @sql = 'ALTER INDEX All ON '+ @table_name +' REBUILD PARTITION = ALL WITH ( MAXDOP= 0,PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, ONLINE = ON, SORT_IN_TEMPDB = ON ) '
+print convert(varchar,@counter)+' '+@sql
+select @counter=@counter+1
+begin try
+exec sp_executesql @sql
+end try
+begin catch
+print @sql
+print 'error'
+end catch
+fetch next from c1 into @table_name
+end
+close c1
+deallocate c1

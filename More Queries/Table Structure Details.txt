@@ -1,0 +1,53 @@
+-----List of Columns with Datatype and MaxLength
+SELECT 
+    Object_Name(c.object_id),
+    c.name 'Column Name',
+    t.Name 'Data type',
+    c.max_length 'Max Length'
+FROM sys.columns c
+INNER JOIN sys.types t ON c.system_type_id = t.system_type_id
+WHERE c.object_id = OBJECT_ID('Table Name')order by c.name
+
+-----------List of Columns with Column Largest Value In Data with MaxLength
+
+DECLARE @YourTableName sysname;
+DECLARE @sql nvarchar(MAX) = ''
+SET @YourTableName = 'Your Table Name'
+CREATE TABLE #resultsTable (columnName varchar(100), columnLargestValueInData int, columnMaxLength int)
+
+DECLARE @whileIter int = 1
+DECLARE @whileTotal int  
+
+SELECT @whileTotal = COUNT(*) FROM sys.columns c
+                            INNER JOIN 
+                                sys.types t ON c.user_type_id = t.user_type_id
+                            WHERE
+                                c.object_id = OBJECT_ID(@YourTableName)
+-- print 'whileTotal: ' + CONVERT(VARCHAR,@whileTotal) -- used for testing
+WHILE @whileIter <= @whileTotal
+BEGIN
+
+SELECT  @sql =  N'INSERT INTO #resultsTable (columnName,  columnLargestValueInData, columnMaxLength) SELECT ''' + sc.name + ''' AS columnName, max(len([' + sc.name + '])), ' + CONVERT(varchar,sc.max_length) + ' FROM [' + t.name + ']'  
+FROM  sys.tables AS t
+INNER JOIN sys.columns AS sc ON t.object_id = sc.object_id
+INNER JOIN sys.types AS st ON sc.system_type_id = st.system_type_id
+WHERE column_id = @whileIter
+AND t.name = @YourTableName
+AND st.name IN ('char', 'varchar', 'nchar', 'nvarchar')
+
+PRINT @sql
+
+exec sp_executesql @sql
+SET @whileIter += 1
+END
+SELECT * FROM #resultsTable
+order by columnName
+
+TRUNCATE TABLE #resultsTable
+DROP TABLE #resultsTable
+--------
+
+
+--select max(len([Column Name])) from Table_name
+--select len([Column name]) from Table_Name order by LEN([Column Name]) desc
+--select * from Table_Name where len([Column Name])>=

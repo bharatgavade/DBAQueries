@@ -1,0 +1,12 @@
+telnet smtp.reliancegeneral.co.in 25
+
+helo reliancegeneral.co.in
+
+mail from: abc.test@reliancegeneral.co.in
+
+rcpt to: amol.d.bhagat@rcap.co.in
+
+data
+
+hjhjhjhj.
+.

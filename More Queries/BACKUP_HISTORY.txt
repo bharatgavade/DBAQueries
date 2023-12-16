@@ -1,0 +1,5 @@
+SELECT server_name,database_name,type,backup_size,compressed_backup_size,backup_start_date,backup_finish_date,
+first_lsn,last_lsn,checkpoint_lsn,database_backup_lsn,* from msdb.dbo.backupset
+where database_name='master' and type='BACKUP_TYPE' order by backup_set_id desc --AND NAME IS NOT NULL
+
+--select backup_start_date,* from msdb.dbo.backupset order by backup_set_id desc

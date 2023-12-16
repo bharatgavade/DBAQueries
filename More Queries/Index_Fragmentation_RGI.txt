@@ -1,0 +1,32 @@
+SELECT 
+db_name() as DatabaseName, 
+QUOTENAME(OBJECT_SCHEMA_NAME(a.object_id, database_id)) schemaName,
+OBJECT_NAME (a.object_id) as ObjectName, 
+a.index_id, b.name as IndexName, 
+avg_fragmentation_in_percent, page_count,index_type_desc,GETDATE() as DateTime
+FROM 
+sys.dm_db_index_physical_stats (db_id(), NULL, NULL, NULL, NULL) AS a
+JOIN sys.indexes AS b ON a.object_id = b.object_id AND a.index_id = b.index_id
+WHERE b.index_id <> 0 and avg_fragmentation_in_percent >20
+--avg_fragmentation_percent >20 
+and page_count>=1000 
+---------------------------
+
+---for perticular table
+SELECT 
+db_name() as DatabaseName, 
+QUOTENAME(OBJECT_SCHEMA_NAME(a.object_id, database_id)) schemaName,
+OBJECT_NAME (a.object_id) as ObjectName, 
+a.index_id, b.name as IndexName, 
+avg_fragmentation_in_percent, page_count,index_type_desc,GETDATE() as DateTime
+FROM 
+sys.dm_db_index_physical_stats (db_id(), NULL, NULL, NULL, NULL) AS a
+JOIN sys.indexes AS b ON a.object_id = b.object_id AND a.index_id = b.index_id
+WHERE b.index_id <> 0 and OBJECT_NAME (a.object_id)=''
+--and avg_fragmentation_in_percent >20
+--avg_fragmentation_percent >20 
+--and page_count>=1000 
+
+
+------------to rebuild index
+ALTER INDEX Index_Name ON Table_Name REBUILD WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = ON, ONLINE = ON, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)

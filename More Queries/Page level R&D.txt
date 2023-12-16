@@ -1,0 +1,35 @@
+USE master;
+----ALTER DATABASE [STAGING_Mplus] SET Emergency
+
+ALTER DATABASE [STAGING_Mplus] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
+DBCC CHECKDB ('STAGING_Mplus', REPAIR_ALLOW_DATA_LOSS) WITH ALL_ERRORMSGS;
+GO
+ALTER DATABASE [STAGING_Mplus] SET MULTI_USER;
+GO
+--dbcc checkdb STAGING_Mplus
+
+
+SELECT STATS_DATE(OBJECT_ID('ModelId'), 
+(SELECT index_id FROM sys.indexes WHERE name = 'IDX_ModelId'))
+
+select * from sys.system_internals_allocation_units where allocation_unit_id = 72057595094630400
+
+select * from sys.sysindexes where first = 0x000000000000
+
+select * from sys.sysindexes where dpages= 131
+select * from sys.allocation_units where allocation_unit_id = 72057595094630400
+
+select * from sys.objects
+
+select * from suspect_pages where database_id = 46
+
+DBCC TRACEON (3604);
+DBCC PAGE (46, 1, 10793387, 0);
+DBCC TRACEOFF (3604);
+
+DBCC IND('db_name',object_name,-1)
+
+SELECT OBJECT_NAME (0)
+
+
